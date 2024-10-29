@@ -15,7 +15,7 @@ public class Teste {
 			carro1.limiteVelocidade=220;
 			carro1.tipoMotor="163/5500";
 		
-			carro1.exibirDados();
+			carro1.exibirDados();//
 	}
 
 }
