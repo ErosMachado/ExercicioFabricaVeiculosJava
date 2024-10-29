@@ -7,7 +7,7 @@ public class Carro {
 	Date anoFabricacao = new Date();
 	Date anoModelo = new Date();
 	int renavam;
-	double aroRodas, velocidade;
+	double aroRodas, velocidade, limiteVelocidade;
 	boolean ligado;
 
 	public void ligar() {
@@ -25,6 +25,9 @@ public class Carro {
 	public void acelerar(double valor) {
 		if (this.ligado) {
 			this.velocidade += valor;
+			if(this.velocidade >= this.limiteVelocidade) {
+				this.velocidade = this.limiteVelocidade;
+			}
 		}
 	}
 
@@ -42,11 +45,11 @@ public class Carro {
 		System.out.println("Marca: " + this.marca);
 		System.out.println("Modelo: " + this.modelo);
 		System.out.println("Cor: " + this.cor);
-		System.out.println("Ano de FabricaÃ§Ã£o: " + this.anoFabricacao);
+		System.out.println("Ano de Fabricação : " + this.anoFabricacao);
 		System.out.println("Ano do Modelo: " + this.anoModelo);
 		System.out.println("Renavam: " + this.renavam);
 		System.out.println("Motor: " + this.motor);
-		System.out.println("Tipo de CÃ¢mbio: " + this.tipoCambio);
+		System.out.println("Tipo de Câmbio: " + this.tipoCambio);
 		System.out.println("Aro das Rodas: " + this.aroRodas);
 		System.out.println("Velocidade Atual: " + this.velocidade + " km/h");
 		System.out.println("Nome do Condutor: " + this.nomeCondutor);
