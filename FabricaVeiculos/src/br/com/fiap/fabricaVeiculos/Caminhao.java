@@ -68,7 +68,7 @@ public class Caminhao {
 		System.out.println("Carga Atual: " + this.cargaAtual + " toneladas");
 		System.out.println("Tipo de Carga: " + this.tipoCarga);
 		System.out.println("Nome do Condutor: " + this.nomeCondutor);
-		System.out.println("Status: " + (ligado ? "Ligado" : "Desligado"));
+		System.out.println("Status: " + (this.ligado ? "Ligado" : "Desligado"));
 		System.out.println("Velocidade Atual: " + this.velocidade + " km/h");
 	}
 }
