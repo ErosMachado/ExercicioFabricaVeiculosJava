@@ -1,7 +1,5 @@
 package br.com.fiap.fabricaVeiculos;
 
-import java.util.Date;
-
 public class TesteCaminhao {
 	public static void main(String[] args) {
 		Caminhao caminhao = new Caminhao();
@@ -15,6 +13,7 @@ public class TesteCaminhao {
 		caminhao.eixos = 3;
 		caminhao.capacidadeCarga = 25.0; 
 		caminhao.limiteVelocidade = 120.0; 
+		caminhao.velocidade = 15;
 		caminhao.tipoCarga = "Grãos";
 		caminhao.nomeCondutor = "Eros Machado";
 		
