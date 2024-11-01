@@ -5,17 +5,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Carro {
+	// definição de tipos e variaveis
 	private String marca, cor, modelo, motor, tipoCambio, tipoMotor, nomeCondutor;
 	private Date anoFabricacao = new Date(), anoModelo = new Date();
 	private int renavam;
 	private double aroRodas, velocidade, limiteVelocidade;
 	private boolean ligado;
 	private double capacidadeRodagem;
+	private double qtdLitros;
 
 	// construtor
 	public Carro(String marca, String motor, String modelo, String cor, String tipoCambio, String tipoMotor,
 			String nomeCondutor, String anoFabricacao, String anoModelo, int renavam, double aroRodas,
-			double velocidade, double limiteVelocidade, boolean ligado, double capacidadeRodagem) {
+			double velocidade, double limiteVelocidade, boolean ligado, double capacidadeRodagem, double qtdLitros) {
 		super();
 		this.marca = marca;
 		this.motor = motor;
@@ -44,6 +46,7 @@ public class Carro {
 		this.limiteVelocidade = limiteVelocidade;
 		this.ligado = ligado;
 		this.capacidadeRodagem = capacidadeRodagem;
+		this.qtdLitros = qtdLitros;
 	}
 
 	public String getMarca() {
@@ -166,6 +169,14 @@ public class Carro {
 		this.capacidadeRodagem = capacidadeRodagem;
 	}
 
+	public double getQtdLitros() {
+		return qtdLitros;
+	}
+
+	public void setQtdLitros(double qtdLitros) {
+		this.qtdLitros = qtdLitros;
+	}
+
 	public void ligar() {
 		if (!this.ligado) {
 			this.ligado = true;
@@ -197,10 +208,21 @@ public class Carro {
 	}
 
 	public void abastecer(Combustivel combustivel, double qtdLitros) {
-		double rendimento = combustivel.abastecimento(qtdLitros);
-		this.capacidadeRodagem = rendimento;
-		System.out.println(
-				"Abastecido com " + qtdLitros + " litros. Capacidade de rodagem: " + this.capacidadeRodagem + " km");
+		// Verifica se o abastecimento ultrapassaria o limite de 50 litros
+		if (this.qtdLitros + qtdLitros > 50) {
+			// Ajusta para encher até o máximo ou exibe uma mensagem
+			double litrosAdicionados = 50 - this.qtdLitros;
+			this.qtdLitros = 50;
+			System.out.println("Tanque cheio! Só foi possível abastecer " + litrosAdicionados + " litros.");
+			System.out.println("---------------------------------");
+		} else {
+			this.qtdLitros += qtdLitros;
+			double rendimento = combustivel.abastecimento(qtdLitros);
+			this.capacidadeRodagem = rendimento;
+			System.out.println("Abastecido com " + qtdLitros + " litros. Capacidade de rodagem: "
+					+ this.capacidadeRodagem + " km");
+			System.out.println("---------------------------------");
+		}
 	}
 
 	public void exibirDados() {
@@ -216,7 +238,8 @@ public class Carro {
 		System.out.println("Aro das Rodas: " + this.aroRodas);
 		System.out.println("Velocidade Atual: " + this.velocidade + " km/h");
 		System.out.println("Nome do Condutor: " + this.nomeCondutor);
-		System.out.println("Status: " + (ligado ? "Ligado" : "Desligado"));
+		System.out.println("Quantidade de Litros atual: " + this.qtdLitros);
+		System.out.println("Status: " + (this.ligado ? "Ligado" : "Desligado"));
 		System.out.println("---------------------------------");
 
 	}
