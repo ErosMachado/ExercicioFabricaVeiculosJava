@@ -1,4 +1,5 @@
 package br.com.fiap.fabricaVeiculos;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,7 +18,8 @@ public class Carro {
 	// construtor
 	public Carro(String marca, String motor, String modelo, String cor, String tipoCambio, String tipoMotor,
 			String nomeCondutor, String anoFabricacao, String anoModelo, int renavam, double aroRodas,
-			double velocidade, double limiteVelocidade, boolean ligado, double capacidadeRodagem, double qtdLitros, String tipoCombustivel) {
+			double velocidade, double limiteVelocidade, boolean ligado, double capacidadeRodagem, double qtdLitros,
+			String tipoCombustivel) {
 		super();
 		this.marca = marca;
 		this.motor = motor;
@@ -49,6 +51,8 @@ public class Carro {
 		this.qtdLitros = qtdLitros;
 		this.tipoCombustivel = tipoCombustivel;
 	}
+
+	// Getters and Setters:
 
 	public String getMarca() {
 		return marca;
@@ -186,6 +190,7 @@ public class Carro {
 		this.tipoCombustivel = tipoCombustivel;
 	}
 
+	// Postagem dos Métodos para o carro:
 	public void ligar() {
 		if (!this.ligado) {
 			this.ligado = true;
@@ -217,13 +222,14 @@ public class Carro {
 	}
 
 	public void abastecer(Combustivel combustivel, double qtdLitros) {
-		//Verifica se o tipoCombustivel usado no carro é "Gasolina", "Alcool" ou "Ambos":
-		if (!combustivel.getTipo().equalsIgnoreCase(this.tipoCombustivel) 
-	            && !this.tipoCombustivel.equalsIgnoreCase("Ambos")) {
-	            System.out.println("Tipo de combustível incompatível. Este carro aceita: " + this.tipoCombustivel);
-				System.out.println("---------------------------------");
-	            return;
-	        }
+		// Verifica se o tipoCombustivel usado no carro é "Gasolina", "Alcool" ou
+		// "Ambos":
+		if (!combustivel.getTipo().equalsIgnoreCase(this.tipoCombustivel)
+				&& !this.tipoCombustivel.equalsIgnoreCase("Ambos")) {
+			System.out.println("Tipo de combustível incompatível. Este carro aceita: " + this.tipoCombustivel);
+			System.out.println("---------------------------------");
+			return;
+		}
 		// Verifica se o abastecimento ultrapassaria o limite de 50 litros:
 		if (this.qtdLitros + qtdLitros > 50) {
 			// Ajusta para encher até o máximo ou exibe uma mensagem
@@ -254,7 +260,7 @@ public class Carro {
 		System.out.println("Aro das Rodas: " + this.aroRodas);
 		System.out.println("Velocidade Atual: " + this.velocidade + " km/h");
 		System.out.println("Nome do Condutor: " + this.nomeCondutor);
-		System.out.println("Tipo de combustivel utilizado: "+ this.tipoCombustivel);
+		System.out.println("Tipo de combustivel utilizado: " + this.tipoCombustivel);
 		System.out.println("Quantidade de Litros atual: " + this.qtdLitros);
 		System.out.println("Status: " + (this.ligado ? "Ligado" : "Desligado"));
 		System.out.println("---------------------------------");

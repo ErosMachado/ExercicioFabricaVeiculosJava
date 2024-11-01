@@ -27,8 +27,8 @@ public class Teste {
 
 		Carro carro7 = new Carro("Renault", "Verde", "Sandero", "1.6 SCe", "Manual", "1.6", "Fernando Silva", "2017",
 				"2018", 778899001, 15, 80, 180, false, 11, 0, "Gasolina");
-		
-		//exibição primária de todos os carros
+
+		// exibição primária de todos os carros
 		carro1.exibirDados();
 		carro2.exibirDados();
 		carro3.exibirDados();
@@ -36,19 +36,19 @@ public class Teste {
 		carro5.exibirDados();
 		carro6.exibirDados();
 		carro7.exibirDados();
-		
-		//Teste dos diferentes Métodos dos carros:
+
+		// Teste dos diferentes Métodos dos carros:
 		carro5.acelerar(15);
 		carro7.desligar();
 		carro4.frear(45);
 		carro6.desligar();
 
-		//Teste do Método abastecer
+		// Teste do Método abastecer
 		carro1.abastecer(alcool, 20);
 		carro2.abastecer(gasolina, 15);
 		carro3.abastecer(alcool, 40);
 
-		//Nova Exibição dos carros
+		// Nova Exibição dos carros
 		carro1.exibirDados();
 		carro2.exibirDados();
 

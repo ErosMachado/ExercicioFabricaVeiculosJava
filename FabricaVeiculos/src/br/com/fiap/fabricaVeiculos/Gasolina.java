@@ -7,7 +7,7 @@ public class Gasolina implements Combustivel {
 	}
 
 	@Override
-    public String getTipo() {
-        return "Gasolina";
-    }
+	public String getTipo() {
+		return "Gasolina";
+	}
 }
