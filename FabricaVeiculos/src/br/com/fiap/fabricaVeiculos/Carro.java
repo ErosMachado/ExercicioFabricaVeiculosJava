@@ -1,5 +1,4 @@
 package br.com.fiap.fabricaVeiculos;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,11 +12,12 @@ public class Carro {
 	private boolean ligado;
 	private double capacidadeRodagem;
 	private double qtdLitros;
+	private String tipoCombustivel;
 
 	// construtor
 	public Carro(String marca, String motor, String modelo, String cor, String tipoCambio, String tipoMotor,
 			String nomeCondutor, String anoFabricacao, String anoModelo, int renavam, double aroRodas,
-			double velocidade, double limiteVelocidade, boolean ligado, double capacidadeRodagem, double qtdLitros) {
+			double velocidade, double limiteVelocidade, boolean ligado, double capacidadeRodagem, double qtdLitros, String tipoCombustivel) {
 		super();
 		this.marca = marca;
 		this.motor = motor;
@@ -47,6 +47,7 @@ public class Carro {
 		this.ligado = ligado;
 		this.capacidadeRodagem = capacidadeRodagem;
 		this.qtdLitros = qtdLitros;
+		this.tipoCombustivel = tipoCombustivel;
 	}
 
 	public String getMarca() {
@@ -177,6 +178,14 @@ public class Carro {
 		this.qtdLitros = qtdLitros;
 	}
 
+	public String getTipoCombustivel() {
+		return tipoCombustivel;
+	}
+
+	public void setTipoCombustivel(String tipoCombustivel) {
+		this.tipoCombustivel = tipoCombustivel;
+	}
+
 	public void ligar() {
 		if (!this.ligado) {
 			this.ligado = true;
@@ -208,7 +217,14 @@ public class Carro {
 	}
 
 	public void abastecer(Combustivel combustivel, double qtdLitros) {
-		// Verifica se o abastecimento ultrapassaria o limite de 50 litros
+		//Verifica se o tipoCombustivel usado no carro é "Gasolina", "Alcool" ou "Ambos":
+		if (!combustivel.getTipo().equalsIgnoreCase(this.tipoCombustivel) 
+	            && !this.tipoCombustivel.equalsIgnoreCase("Ambos")) {
+	            System.out.println("Tipo de combustível incompatível. Este carro aceita: " + this.tipoCombustivel);
+				System.out.println("---------------------------------");
+	            return;
+	        }
+		// Verifica se o abastecimento ultrapassaria o limite de 50 litros:
 		if (this.qtdLitros + qtdLitros > 50) {
 			// Ajusta para encher até o máximo ou exibe uma mensagem
 			double litrosAdicionados = 50 - this.qtdLitros;
@@ -238,6 +254,7 @@ public class Carro {
 		System.out.println("Aro das Rodas: " + this.aroRodas);
 		System.out.println("Velocidade Atual: " + this.velocidade + " km/h");
 		System.out.println("Nome do Condutor: " + this.nomeCondutor);
+		System.out.println("Tipo de combustivel utilizado: "+ this.tipoCombustivel);
 		System.out.println("Quantidade de Litros atual: " + this.qtdLitros);
 		System.out.println("Status: " + (this.ligado ? "Ligado" : "Desligado"));
 		System.out.println("---------------------------------");

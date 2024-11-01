@@ -5,4 +5,9 @@ public class Alcool implements Combustivel {
 	public double abastecimento(double qtdLitros) {
 		return qtdLitros * 7.5; // fator rendimento do álcool
 	}
+
+	@Override
+	public String getTipo() {
+		return "Alcool";
+	}
 }

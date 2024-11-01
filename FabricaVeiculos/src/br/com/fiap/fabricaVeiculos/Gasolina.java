@@ -5,4 +5,9 @@ public class Gasolina implements Combustivel {
 	public double abastecimento(double qtdLitros) {
 		return qtdLitros * 10; // // fator rendimento da gasolina
 	}
+
+	@Override
+    public String getTipo() {
+        return "Gasolina";
+    }
 }
