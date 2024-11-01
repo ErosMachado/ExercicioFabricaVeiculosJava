@@ -3,8 +3,8 @@ package br.com.fiap.fabricaVeiculos;
 public class Alcool implements Combustivel {
 
 	@Override
-	public void Abastecimento(double qtdLitros) {
-		
+	public double abastecimento(double qtdLitros) {
+		return (Double) null;
 	}
 
 }
