@@ -16,15 +16,14 @@ public class Carro {
 	private String tipoCombustivel;
 
 	// construtor
-	public Carro(String marca, String motor, String modelo, String cor, String tipoCambio, String tipoMotor,
+	public Carro(String marca, String cor, String modelo, String motor, String tipoCambio, String tipoMotor,
 			String nomeCondutor, String anoFabricacao, String anoModelo, int renavam, double aroRodas,
-			double velocidade, double limiteVelocidade, boolean ligado, double capacidadeRodagem, double qtdLitros,
-			String tipoCombustivel) {
+			double velocidade, double limiteVelocidade, boolean ligado, double qtdLitros, String tipoCombustivel) {
 		super();
 		this.marca = marca;
-		this.motor = motor;
+		this.cor = cor;		
 		this.modelo = modelo;
-		this.cor = cor;
+		this.motor = motor;
 		this.tipoCambio = tipoCambio;
 		this.tipoMotor = tipoMotor;
 		this.nomeCondutor = nomeCondutor;
@@ -47,7 +46,6 @@ public class Carro {
 		this.velocidade = velocidade;
 		this.limiteVelocidade = limiteVelocidade;
 		this.ligado = ligado;
-		this.capacidadeRodagem = capacidadeRodagem;
 		this.qtdLitros = qtdLitros;
 		this.tipoCombustivel = tipoCombustivel;
 	}
@@ -235,14 +233,15 @@ public class Carro {
 			// Ajusta para encher até o máximo ou exibe uma mensagem
 			double litrosAdicionados = 50 - this.qtdLitros;
 			this.qtdLitros = 50;
-			System.out.println("Tanque cheio! Só foi possível abastecer " + litrosAdicionados + " litros.");
+			System.out.println("Tanque cheio! Só foi possível abastecer " + litrosAdicionados
+					+ " litros. A quantidade total de litros agora e: " + this.qtdLitros
+					+ " L. A capacidade de rodagem antiga era: " + (combustivel.abastecimento(this.qtdLitros - litrosAdicionados))
+					+ " km, já a capacidade de rodagem atual é: " + (combustivel.abastecimento(50))+" km.");
 			System.out.println("---------------------------------");
 		} else {
 			this.qtdLitros += qtdLitros;
-			double rendimento = combustivel.abastecimento(qtdLitros);
-			this.capacidadeRodagem = rendimento;
-			System.out.println("Abastecido com " + qtdLitros + " litros. Capacidade de rodagem: "
-					+ this.capacidadeRodagem + " km");
+			System.out.println("Abastecido com " + qtdLitros + " litros. A capacidade de rodagem atual é: "
+					+ (combustivel.abastecimento(qtdLitros))+" km.");
 			System.out.println("---------------------------------");
 		}
 	}
