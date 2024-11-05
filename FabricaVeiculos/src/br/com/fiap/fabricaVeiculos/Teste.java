@@ -11,7 +11,7 @@ public class Teste {
 				"2004", 123456789, 18, 100, 220, true, 40, "Gasolina");
 
 		Carro carro2 = new Carro("Volkswagen", "Azul", "Gol", "Motor AP", "Manual", "1.6", "Alice Santos", "2015",
-				"2016", 987654321, 15, 80, 180, true, 0, "Ambos");
+				"2016", 987654321, 15, 80, 180, true, 0, "Alcool");
 
 		Carro carro3 = new Carro("Chevrolet", "Vermelho", "Onix", "1.0 Turbo", "Automático", "1.0 Turbo",
 				"Carlos Oliveira", "2019", "2020", 112233445, 16, 90, 200, true, 5, "Alcool");

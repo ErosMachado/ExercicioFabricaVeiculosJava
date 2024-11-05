@@ -272,7 +272,6 @@ public class Carro {
 		} else {
 			capacidadeRodagem = 0; 
 		}
-
 		System.out.println("A capacidade de rodagem atual: " + capacidadeRodagem + " km.");
 		System.out.println("---------------------------------");
 
