@@ -11,9 +11,9 @@ public class Carro {
 	private int renavam;
 	private double aroRodas, velocidade, limiteVelocidade;
 	private boolean ligado;
-	private double capacidadeRodagem;
-	private double qtdLitros;
+	private double capacidadeRodagem, qtdLitros;
 	private String tipoCombustivel;
+	// private Combustivel combustivel;
 
 	// construtor
 	public Carro(String marca, String cor, String modelo, String motor, String tipoCambio, String tipoMotor,
@@ -21,7 +21,7 @@ public class Carro {
 			double velocidade, double limiteVelocidade, boolean ligado, double qtdLitros, String tipoCombustivel) {
 		super();
 		this.marca = marca;
-		this.cor = cor;		
+		this.cor = cor;
 		this.modelo = modelo;
 		this.motor = motor;
 		this.tipoCambio = tipoCambio;
@@ -235,18 +235,20 @@ public class Carro {
 			this.qtdLitros = 50;
 			System.out.println("Tanque cheio! Só foi possível abastecer " + litrosAdicionados
 					+ " litros. A quantidade total de litros agora e: " + this.qtdLitros
-					+ " L. A capacidade de rodagem antiga era: " + (combustivel.abastecimento(this.qtdLitros - litrosAdicionados))
-					+ " km, já a capacidade de rodagem atual é: " + (combustivel.abastecimento(50))+" km.");
+					+ " L. A capacidade de rodagem antiga era: "
+					+ (combustivel.abastecimento(this.qtdLitros - litrosAdicionados))
+					+ " km, já a capacidade de rodagem atual é: " + (combustivel.abastecimento(50)) + " km.");
 			System.out.println("---------------------------------");
 		} else {
 			this.qtdLitros += qtdLitros;
 			System.out.println("Abastecido com " + qtdLitros + " litros. A capacidade de rodagem atual é: "
-					+ (combustivel.abastecimento(qtdLitros))+" km.");
+					+ (combustivel.abastecimento(qtdLitros)) + " km.");
 			System.out.println("---------------------------------");
 		}
 	}
 
 	public void exibirDados() {
+		double capacidadeRodagem;
 		System.out.println("Dados do Carro:");
 		System.out.println("Marca: " + this.marca);
 		System.out.println("Modelo: " + this.modelo);
@@ -262,6 +264,16 @@ public class Carro {
 		System.out.println("Tipo de combustivel utilizado: " + this.tipoCombustivel);
 		System.out.println("Quantidade de Litros atual: " + this.qtdLitros);
 		System.out.println("Status: " + (this.ligado ? "Ligado" : "Desligado"));
+		// Calculo da capacidade de rodagem baseado no tipo de combustível:
+		if ("Gasolina".equalsIgnoreCase(this.tipoCombustivel)) {
+			capacidadeRodagem = this.qtdLitros * 10;
+		} else if ("Alcool".equalsIgnoreCase(this.tipoCombustivel)) {
+			capacidadeRodagem = this.qtdLitros * 7.5;
+		} else {
+			capacidadeRodagem = 0; 
+		}
+
+		System.out.println("A capacidade de rodagem atual: " + capacidadeRodagem + " km.");
 		System.out.println("---------------------------------");
 
 	}
